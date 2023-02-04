@@ -2,7 +2,16 @@ package com.mr.formation.student.crud.productapi.entity;
 
 import java.util.Objects;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Produit {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	
 	private String ref;
 	
@@ -46,9 +55,20 @@ public class Produit {
 		this.prixUnitaire = prixUnitaire;
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(ref);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
 	}
 
 	@Override
@@ -60,8 +80,19 @@ public class Produit {
 		if (getClass() != obj.getClass())
 			return false;
 		Produit other = (Produit) obj;
-		return Objects.equals(ref, other.ref);
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
 	}
+
+	
+	
+	
+
+
 	
 	
 
