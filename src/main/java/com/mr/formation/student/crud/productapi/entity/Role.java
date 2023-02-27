@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.mr.formation.student.crud.productapi.util.RoleEnum;
+
 @Entity
 public class Role {
 	
@@ -21,9 +23,9 @@ public class Role {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Role(String name) {
+	public Role(RoleEnum role) {
 		super();
-		this.name = name;
+		this.name = role.getName();
 	}
 
 	public Long getId() {

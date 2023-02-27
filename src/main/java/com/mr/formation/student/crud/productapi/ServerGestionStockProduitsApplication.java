@@ -12,6 +12,7 @@ import com.mr.formation.student.crud.productapi.entity.User;
 import com.mr.formation.student.crud.productapi.repository.ProduitRepository;
 import com.mr.formation.student.crud.productapi.repository.RoleRepository;
 import com.mr.formation.student.crud.productapi.repository.UserRepository;
+import com.mr.formation.student.crud.productapi.util.RoleEnum;
 
 @SpringBootApplication
 public class ServerGestionStockProduitsApplication {
@@ -25,8 +26,8 @@ public class ServerGestionStockProduitsApplication {
 		
 		RoleRepository roleRepository = ctx.getBean(RoleRepository.class);
 		
-		Role roleUser = new Role("user");
-		Role roleAdmin = new Role("admin");
+		Role roleUser = new Role(RoleEnum.ROLE_USER);
+		Role roleAdmin = new Role(RoleEnum.ROLE_ADMIN);
 		
 		roleRepository.save(roleUser);
 		roleRepository.save(roleAdmin);
